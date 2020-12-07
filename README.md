@@ -1,2 +1,2 @@
 # negroni-cache
-Cache middleware for Negroni
+Yet another useless caching middleware for Negroni
