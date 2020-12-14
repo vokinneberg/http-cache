@@ -1,4 +1,4 @@
-# negroni-cache
+# http-cache
 
 Yet another useless caching middleware for Go.
 
