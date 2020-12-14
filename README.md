@@ -14,8 +14,9 @@ First, this was part of the job test assessment. But I think that it shouldn't g
 
 ### Usage
 
-#### Negroni
+#### Generic Go middleware
 
+#### Negroni
 
 ## Roadmap
 
