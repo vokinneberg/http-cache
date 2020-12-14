@@ -10,7 +10,7 @@ First, this was part of the job test assessment. But I think that it shouldn't g
 
 ### Installation
 
-`go get github.com/vokinneberg/negroni-cache/v1`
+`go get github.com/vokinneberg/http-cache/v1`
 
 ### Usage
 
