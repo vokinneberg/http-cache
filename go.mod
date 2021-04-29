@@ -1,8 +1,6 @@
-module github.com/vokinneberg/negroni-cache
+module github.com/vokinneberg/http_cache
 
-go 1.15
-
-require github.com/urfave/negroni/v2 v2.0.2
+go 1.16
 
 require (
 	github.com/hashicorp/golang-lru v0.5.4

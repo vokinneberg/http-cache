@@ -1,4 +1,4 @@
-package negroni_cache
+package main
 
 import (
 	"hash/fnv"
@@ -8,7 +8,6 @@ import (
 	"strings"
 
 	lru "github.com/hashicorp/golang-lru"
-	"github.com/urfave/negroni/v2"
 )
 
 var cachableVerbs = map[string]interface{} {
@@ -33,6 +32,12 @@ func NewHttpCache(size int) *HttpCache {
 	return &HttpCache{cache: c}
 }
 
+func (c *HttpCache) Handler(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+		c.ServeHTTP(w, r, h.ServeHTTP)
+	})
+}
+
 func (c *HttpCache) ServeHTTP(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	key := cacheKey(r.URL)
 	if _, ok := cachableVerbs[r.Method]; ok {
@@ -52,7 +57,7 @@ func (c *HttpCache) ServeHTTP(rw http.ResponseWriter, r *http.Request, next http
 		}
 
 		w := httptest.NewRecorder()
-		crw := newCacheResponseWriter(rw.(negroni.ResponseWriter), w)
+		crw := newCacheResponseWriter(rw.(http.ResponseWriter), w)
 
 		next(crw, r)
 
@@ -63,8 +68,9 @@ func (c *HttpCache) ServeHTTP(rw http.ResponseWriter, r *http.Request, next http
 		if err != nil {
 			panic(err)
 		}
+	} else {
+		next(rw, r)
 	}
-	next(rw, r)
 }
 
 func cacheKey(u *url.URL) string {
