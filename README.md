@@ -20,8 +20,8 @@ First, this was part of the job test assessment. But I think that it shouldn't g
 
 ## Roadmap
 
+* Add Unit tests.
 * Add benchmarks - I really interested in how efficient this implementation is?
-* Add support for other HTTP Verbs
-* Make middleware [RFC7234](https://tools.ietf.org/html/rfc7234) complaint
+* Make middleware [RFC7234](https://tools.ietf.org/html/rfc7234) complaint.
+  * Add support for [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) header
 * Add more data store adapters such as: [Redis](https://redis.io/), [memcached](https://www.memcached.org/), [DynamoDB](https://aws.amazon.com/dynamodb/), etc.
-* Add support of more [cache replacement polocies](https://en.wikipedia.org/wiki/Cache_replacement_policies) for in-memory store
