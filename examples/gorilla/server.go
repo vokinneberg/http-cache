@@ -4,7 +4,7 @@ import (
     "net/http"
 
     "github.com/gorilla/mux"
-    "github.com/vokinneberg/http_cache"
+    "github.com/vokinneberg/http-cache"
 )
 
 func main() {
@@ -14,6 +14,6 @@ func main() {
         w.Write([]byte("{\"hello\": \"world\"}"))
     })
 
-    handler := http_cache.NewDefault().Handler(mux)
+    handler := httpcache.NewDefault().Handler(mux)
     http.ListenAndServe(":8080", handler)
 }
