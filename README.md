@@ -10,7 +10,7 @@ First, this was part of the job test assessment. But I think that it shouldn't g
 
 ### Installation
 
-`go get -u github.com/vokinneberg/httpcache`
+`go get -u github.com/vokinneberg/http-cache`
 
 ### Usage
 
