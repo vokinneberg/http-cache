@@ -4,7 +4,7 @@ Yet another useless caching middleware for Go.
 
 ## Why?
 
-First, this was part of the job test assessment. But I think that it shouldn't go to the trash bin and might be useful for someone. So, generally speaking - Just for fun. I got the job, BTW 😉
+First, this was part of the job test assessment. But I think that it shouldn't go to the trash bin and might be useful for someone. So, generally speaking - Just for fun 😊
 
 ## Getting Started
 
