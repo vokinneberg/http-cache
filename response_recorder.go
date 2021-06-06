@@ -1,4 +1,4 @@
-package http_cache
+package httpcache
 
 import (
     "bytes"

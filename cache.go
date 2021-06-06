@@ -1,4 +1,4 @@
-package http_cache
+package httpcache
 
 import (
 	"fmt"
@@ -31,7 +31,7 @@ type HttpCache struct {
 	maxAge int64
 }
 
-// Options a configuration container for `http-cache` middleware.
+// Options a configuration container for `httpcache` middleware.
 type Options struct {
 	// AllowedVerbs is the list of HTTP Verbs that allowed for caching.
 	// Supported cachable verbs: GET, HEAD, OPTIONS.
@@ -47,7 +47,7 @@ type Options struct {
 	Size int
 }
 
-// New creates a new instance of `http-cache` middleware.
+// New creates a new instance of `httpcache` middleware.
 func New(options *Options) *HttpCache {
 	c, err := lru.NewARC(options.Size)
 	if err != nil {

@@ -4,7 +4,7 @@ import (
     "net/http"
 
     "github.com/urfave/negroni"
-    "github.com/vokinneberg/http_cache"
+    "github.com/vokinneberg/http-cache"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 
     n := negroni.Classic()
 
-    n.Use(http_cache.NewDefault())
+    n.Use(httpcache.NewDefault())
     n.UseHandler(mux)
     n.Run(":8080")
 }
