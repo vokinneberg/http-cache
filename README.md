@@ -17,19 +17,37 @@ First, this was part of the job test assessment. But I think that it shouldn't g
 #### Generic Go middleware
 
 ```Go
+func main() {
     mux := http.NewServeMux()
     mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
         w.Header().Set("Content-Type", "application/json")
         w.Write([]byte("{\"hello\": \"world\"}"))
     })
 
-    handler := http_cache.NewDefault().Handler(mux)
+    handler := httpcache.NewDefault().Handler(mux)
     http.ListenAndServe(":8080", handler)
+}
+```
+
+#### Gorilla mux
+
+```Go
+func main() {
+    mux := mux.NewRouter()
+    mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        w.Header().Set("Content-Type", "application/json")
+        w.Write([]byte("{\"hello\": \"world\"}"))
+    })
+
+    handler := httpcache.NewDefault().Handler(mux)
+    http.ListenAndServe(":8080", handler)
+}
 ```
 
 #### Negroni middleware
 
 ```Go
+func main() {
     mux := http.NewServeMux()
 
     mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -39,9 +57,10 @@ First, this was part of the job test assessment. But I think that it shouldn't g
 
     n := negroni.Classic()
 
-    n.Use(http_cache.NewDefault())
+    n.Use(httpcache.NewDefault())
     n.UseHandler(mux)
     n.Run(":8080")
+}
 ```
 
 ## Roadmap
