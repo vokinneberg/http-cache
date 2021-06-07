@@ -1,6 +1,6 @@
 # http-cache
 
-Yet another useless caching middleware for Go.
+Caching proxy as middleware for Go.
 
 ## Why?
 
