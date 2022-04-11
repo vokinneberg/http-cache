@@ -1,6 +1,6 @@
 module github.com/vokinneberg/http-cache/examples/negroni
 
-go 1.16
+go 1.17
 
 require (
 	github.com/urfave/negroni v1.0.0

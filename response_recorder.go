@@ -6,13 +6,7 @@ import (
     "net/http/httptest"
 )
 
-type ResponseRecorder interface {
-    http.ResponseWriter
-    Body() *bytes.Buffer
-    Code() int
-    Result() *http.Response
-}
-
+// recordedResponseWriter is the type that helps to decouple middleware implementation from httptest.NewRecorder()
 type recordedResponseWriter struct {
     r *httptest.ResponseRecorder
 }
@@ -41,6 +35,6 @@ func (crw *recordedResponseWriter) Result() *http.Response {
     return crw.r.Result()
 }
 
-func NewResponseRecorder() ResponseRecorder {
+func newResponseRecorder() *recordedResponseWriter {
     return &recordedResponseWriter{r:httptest.NewRecorder()}
 }
